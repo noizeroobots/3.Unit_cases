@@ -30,9 +30,9 @@ public class SorterTests {
     }
 
     @Test
-    public void AllElementsEqual() {  // Проверка на одинаковые элементы в массиве
-        int[] i = {5, 5, 5, 5, 5, 5};
-        int[] expectedArray = {5, 5, 5, 5, 5, 5};
+    public void DifferentExtremeValues() {  // Проверка на положительные и отрицательные элементы в одном массиве
+        int[] i = {2147483647, 0, -1, -2147483648, 1};
+        int[] expectedArray = {-2147483648, -1, 0, 1, 2147483647};
         Sorter.sort(i);
         Assertions.assertArrayEquals(expectedArray, i);
     }
@@ -45,4 +45,19 @@ public class SorterTests {
         Assertions.assertArrayEquals(expectedArray, i);
     }
 
+    @Test
+    public void IdenticalPositiveElements() {  // Проверка на одинаковые положительные элементы в массиве
+        int[] i = {7, 7, 7, 7, 7, 7, 7};
+        int[] expectedArray = {7, 7, 7, 7, 7, 7, 7};
+        Sorter.sort(i);
+        Assertions.assertArrayEquals(expectedArray, i);
+    }
+
+    @Test
+    public void IdenticalNegativeElements() {  // Проверка на одинаковые отрицательные элементы в массиве
+        int[] i = {-40, -40, -40, -40};
+        int[] expectedArray = {-40, -40, -40, -40};
+        Sorter.sort(i);
+        Assertions.assertArrayEquals(expectedArray, i);
+    }
 }
