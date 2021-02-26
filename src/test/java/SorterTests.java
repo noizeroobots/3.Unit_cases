@@ -1,11 +1,12 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+//written by Aleksey Dolgov
 
 public class SorterTests {
 
     @Test
-    public void CompareInputOutput(){
+    public void CompareInputOutput() {  // Проверка, что наша сортировка работает правильно
         int[] i = {17, 1, 96, 4, 58, 2, 100, 99, 9998, 18};
         int[] expectedArray = {1, 2, 4, 17, 18, 58, 96, 99, 100, 9998};
         Sorter.sort(i);
@@ -13,33 +14,42 @@ public class SorterTests {
     }
 
     @Test
-    public void CheckTheFirstSymbol(){
-        int[] i = {17, 1, 96, 4, 58, 2, 100, 99, 9998, 18};
+    public void EmptyArray() {  // Проверка на пустой массив
+        int[] i = {};
+        int[] expectedArray = {};
         Sorter.sort(i);
-        int first = i[0];
-        Assertions.assertEquals(first, 1);
+        Assertions.assertArrayEquals(expectedArray, i);
     }
 
     @Test
-    public void CheckTheLastSymbol(){
-        int[] i = {17, 1, 96, 4, 58, 2, 100, 99, 9998, 18};
+    public void SingleElement() {  // Проверка на единственный элемент в массиве
+        int[] i = {0};
+        int[] expectedArray = {0};
         Sorter.sort(i);
-        int last = i[9];
-        Assertions.assertNotEquals(last, 1);
+        Assertions.assertArrayEquals(expectedArray, i);
     }
 
     @Test
-    public void nonexistentSymbol(){
-        int[] i = new int[25];
+    public void AllElementsEqual() {  // Проверка на одинаковые элементы в массиве
+        int[] i = {5, 5, 5, 5, 5, 5};
+        int[] expectedArray = {5, 5, 5, 5, 5, 5};
         Sorter.sort(i);
-        int non = i[4];
-        Assertions.assertNotNull(non);
+        Assertions.assertArrayEquals(expectedArray, i);
     }
 
     @Test
-    public void nonexistentSymbol2(){
-        int[] i = new int[25];
+    public void AllElementsNegative() {  // Проверка на отрицательные элементы в массиве
+        int[] i = {-1, -21, -11, -31, -3};
+        int[] expectedArray = {-31, -21, -11, -3, -1};
         Sorter.sort(i);
-        Assertions.assertNull(null);
+        Assertions.assertArrayEquals(expectedArray, i);
+    }
+
+    @Test
+    public void OtherAsserts() {  // Проверка на отрицательные элементы в массиве
+        int[] i = {-1, -21, -11, -31, -3};
+        int[] expectedArray = {-31, -21, -11, -3, -1};
+        Sorter.sort(i);
+        Assertions.assertArray
     }
 }
