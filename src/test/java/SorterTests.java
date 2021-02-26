@@ -45,11 +45,4 @@ public class SorterTests {
         Assertions.assertArrayEquals(expectedArray, i);
     }
 
-    @Test
-    public void OtherAsserts() {  // Проверка на отрицательные элементы в массиве
-        int[] i = {-1, -21, -11, -31, -3};
-        int[] expectedArray = {-31, -21, -11, -3, -1};
-        Sorter.sort(i);
-        Assertions.assertArray
-    }
 }
